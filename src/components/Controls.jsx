@@ -6,7 +6,9 @@ const Controls = (props) => (
         {
             props.status === null ?
             <div className="controls">
-                <button className="btn btn-success btn-lg btn-block">
+                <button className="btn btn-success btn-lg btn-block" 
+                        onClick={props.onStart}
+                        disabled={!props.canStart} >
                     START
                 </button>
             </div>
@@ -14,16 +16,16 @@ const Controls = (props) => (
             <div className="controls">
                 {
                     props.status === 'STOPPED'?
-                    <button className="btn btn-success btn-lg btn-block">
+                    <button className="btn btn-success btn-lg" onClick={props.onResume} >
                         RESUME
                     </button>
                     :
-                    <button className="btn btn-danger btn-lg btn-block">
+                    <button className="btn btn-danger btn-lg" onClick={props.onStop} >
                         STOP
                     </button>
                 }
                 
-                <button className="btn btn-primary btn-lg">
+                <button className="btn btn-primary btn-lg" onClick={props.onReset} >
                     RESET
                 </button>
             </div>
